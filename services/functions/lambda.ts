@@ -1,5 +1,5 @@
-import { DynamoDB } from "aws-sdk";
-import { Table } from "@serverless-stack/node/table";
+import { Table } from '@serverless-stack/node/table';
+import { DynamoDB } from 'aws-sdk';
 
 const dynamoDb = new DynamoDB.DocumentClient();
 
@@ -9,7 +9,7 @@ export async function handler() {
     TableName: Table.Counter.tableName,
     // Get the row where the counter is called "clicks"
     Key: {
-      counter: "clicks",
+      counter: 'clicks',
     },
   };
   const results = await dynamoDb.get(getParams).promise();

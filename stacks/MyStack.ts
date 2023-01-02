@@ -1,10 +1,4 @@
-import {
-  Api,
-  StaticSite,
-  StackContext,
-  Table,
-  StaticSiteFileOptions,
-} from '@serverless-stack/resources';
+import { Api, StaticSite, StackContext, Table } from '@serverless-stack/resources';
 
 export function MyStack({ stack }: StackContext) {
   // Create the table
@@ -26,8 +20,8 @@ export function MyStack({ stack }: StackContext) {
       'POST /': 'functions/lambda.handler',
     },
   });
-
-  const site = new StaticSite(stack, 'fe-gusu-todo', {
+  // Create the static site
+  const site = new StaticSite(stack, 'frontend', {
     path: 'frontend',
     buildOutput: 'dist',
     buildCommand: 'ng build --output-path dist',
